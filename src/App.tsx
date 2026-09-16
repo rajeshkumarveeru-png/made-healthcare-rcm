@@ -3,6 +3,7 @@ import {
   ArrowRight, ArrowUpRight, BarChart3, BriefcaseBusiness, CheckCircle2, Code2,
   FileCheck2, HeartPulse, Laptop2, Menu, MessageCircle, Phone, Search,
   ShieldCheck, Stethoscope, Target, Users, Workflow, X,
+  Building2, Sparkles, House, BrainCircuit,
 } from 'lucide-react'
 
 const whatsapp = 'https://wa.me/8667053636?text=Hello%2C%20I%20have%20a%20question'
@@ -32,12 +33,12 @@ const trainingModules = [
 ] as const
 
 const industries = [
-  ['01', 'Physician Practices', 'Revenue-cycle support designed around the pace and operating model of physician-led practices.'],
-  ['02', 'Specialty Practices', 'Structured billing, coding, denial and analytics workflows for specialized care environments.'],
-  ['03', 'Hospitals & Health Systems', 'Scalable revenue-cycle processes, operational visibility and workflow support across complex organizations.'],
-  ['04', 'Post-Acute & Long-Term Care', 'Revenue-cycle knowledge and process support for organizations managing continuing and long-term care.'],
-  ['05', 'Behavioral Health', 'Compliance-aware workflows that respect the operational complexity of behavioral healthcare billing.'],
-  ['06', 'Growing Healthcare Organizations', 'Flexible people, process and technology support as healthcare organizations expand.'],
+  ['01', 'Physician Practices', 'Revenue-cycle support designed around the pace and operating model of physician-led practices.', Stethoscope, 'teal'],
+  ['02', 'Specialty Practices', 'Structured billing, coding, denial and analytics workflows for specialized care environments.', Sparkles, 'violet'],
+  ['03', 'Hospitals & Health Systems', 'Scalable revenue-cycle processes, operational visibility and workflow support across complex organizations.', Building2, 'blue'],
+  ['04', 'Post-Acute & Long-Term Care', 'Revenue-cycle knowledge and process support for organizations managing continuing and long-term care.', House, 'amber'],
+  ['05', 'Behavioral Health', 'Compliance-aware workflows that respect the operational complexity of behavioral healthcare billing.', BrainCircuit, 'rose'],
+  ['06', 'Growing Healthcare Organizations', 'Flexible people, process and technology support as healthcare organizations expand.', ArrowUpRight, 'indigo'],
 ] as const
 
 const pillars = [
@@ -75,185 +76,190 @@ function App() {
   }, [])
 
   return (
-    <div className="siteShell">
-      <header className="header">
-        <div className="wrap headerInner">
-          <a className="brandLockup" href="#home" onClick={() => setMenu(false)} aria-label="MADE Healthcare RCM home">
+      <div className="siteShell">
+        <header className="header">
+          <div className="wrap headerInner">
+            <a className="brandLockup" href="#home" onClick={() => setMenu(false)} aria-label="MADE Healthcare RCM home">
             <span className="brandLogo">
               <img src="/images/made-healthcare-logo.jpeg" alt="MADE Healthcare — Care. Community. Compassion." />
             </span>
-            <span className="brandWords">
+              <span className="brandWords">
               <strong>MADE HEALTHCARE RCM</strong>
               <small>Medical Billing · Revenue Cycle Management</small>
             </span>
-          </a>
+            </a>
 
-          <nav className={menu ? 'nav show' : 'nav'} aria-label="Primary navigation">
-            {['home', 'services', 'training', 'industries', 'about', 'contact'].map((id) => (
-              <button key={id} onClick={() => go(id)}>{id[0].toUpperCase() + id.slice(1)}</button>
-            ))}
-            <button className="searchBtn" onClick={() => { setSearchOpen(true); setMenu(false) }} aria-label="Open site search" title="Search">
-              <Search size={19} strokeWidth={1.8} />
+            <nav className={menu ? 'nav show' : 'nav'} aria-label="Primary navigation">
+              {['home', 'services', 'training', 'industries', 'about', 'contact'].map((id) => (
+                  <button key={id} onClick={() => go(id)}>{id[0].toUpperCase() + id.slice(1)}</button>
+              ))}
+              <button className="searchBtn" onClick={() => { setSearchOpen(true); setMenu(false) }} aria-label="Open site search" title="Search">
+                <Search size={19} strokeWidth={1.8} />
+              </button>
+            </nav>
+
+            <button className="menuBtn" onClick={() => setMenu((value) => !value)} aria-label={menu ? 'Close menu' : 'Open menu'} aria-expanded={menu}>
+              {menu ? <X /> : <Menu />}
             </button>
-          </nav>
-
-          <button className="menuBtn" onClick={() => setMenu((value) => !value)} aria-label={menu ? 'Close menu' : 'Open menu'} aria-expanded={menu}>
-            {menu ? <X /> : <Menu />}
-          </button>
-        </div>
-      </header>
-
-      {searchOpen && (
-        <div className="searchOverlay" role="dialog" aria-modal="true" aria-label="Site search" onClick={() => setSearchOpen(false)}>
-          <div className="searchPanel" onClick={(event) => event.stopPropagation()}>
-            <div className="searchPanelTop">
-              <div>
-                <span className="searchKicker">MADE HEALTHCARE RCM</span>
-                <h2>Find your way around.</h2>
-              </div>
-              <button className="searchClose" onClick={() => setSearchOpen(false)} aria-label="Close search"><X size={20} /></button>
-            </div>
-            <div className="searchField"><Search size={19} /><span>Search sections</span><kbd>ESC</kbd></div>
-            <div className="searchLinks">
-              {[
-                ['Home', 'home', 'Healthcare revenue and operations'],
-                ['Services', 'services', 'Billing, coding, access, analytics and automation'],
-                ['Training', 'training', 'Medical billing professional development'],
-                ['Industries', 'industries', 'Healthcare organizations we support'],
-                ['About', 'about', 'Our approach and operating philosophy'],
-                ['Contact', 'contact', 'Connect with MADE Healthcare'],
-              ].map(([label, id, description]) => (
-                <button key={id} onClick={() => go(id)}>
-                  <span><b>{label}</b><small>{description}</small></span><ArrowUpRight size={17} />
-                </button>
-              ))}
-            </div>
-            <div className="searchHint">Tip: press <strong>Ctrl + K</strong> anytime to open search.</div>
           </div>
-        </div>
-      )}
+        </header>
 
-      <main>
-        <section id="home" className="hero">
-          <div className="heroGlow heroGlowOne" />
-          <div className="heroGlow heroGlowTwo" />
-          <div className="wrap heroGrid">
-            <div className="heroCopy reveal">
-              <div className="eyebrow"><span>00</span> MADE HEALTHCARE · RCM</div>
-              <h1>Healthcare revenue.<br /><em>Smarter operations.</em><br />Better outcomes.</h1>
-              <p className="heroLead">MADE Healthcare combines medical billing expertise, revenue cycle operations, technology and analytics to help healthcare organizations strengthen financial performance while allowing care teams to focus on patients.</p>
-              <div className="heroFacts">
-                <div><strong>RCM</strong><span>Healthcare revenue cycle</span></div>
-                <div><strong>TECH</strong><span>Technology-enabled workflows</span></div>
-                <div><strong>PEOPLE</strong><span>Expertise behind every process</span></div>
-              </div>
-            </div>
-
-            <div className="heroVisual reveal delayOne" aria-hidden="true">
-              <div className="visualFrame">
-                <div className="visualTop"><span>HEALTHCARE OPERATIONS</span><span>01 — 04</span></div>
-                <div className="visualPanel">
-                  <div className="visualOrb"><HeartPulse size={68} strokeWidth={1.2} /></div>
-                  <div className="visualMetric"><small>REVENUE CYCLE</small><b>People · Process · Technology</b></div>
-                  <div className="visualLines"><i /><i /><i /><i /></div>
+        {searchOpen && (
+            <div className="searchOverlay" role="dialog" aria-modal="true" aria-label="Site search" onClick={() => setSearchOpen(false)}>
+              <div className="searchPanel" onClick={(event) => event.stopPropagation()}>
+                <div className="searchPanelTop">
+                  <div>
+                    <span className="searchKicker">MADE HEALTHCARE RCM</span>
+                    <h2>Find your way around.</h2>
+                  </div>
+                  <button className="searchClose" onClick={() => setSearchOpen(false)} aria-label="Close search"><X size={20} /></button>
                 </div>
-                <div className="visualFooter"><span>CARE</span><span>COMMUNITY</span><span>COMPASSION</span></div>
+                <div className="searchField"><Search size={19} /><span>Search sections</span><kbd>ESC</kbd></div>
+                <div className="searchLinks">
+                  {[
+                    ['Home', 'home', 'Healthcare revenue and operations'],
+                    ['Services', 'services', 'Billing, coding, access, analytics and automation'],
+                    ['Training', 'training', 'Medical billing professional development'],
+                    ['Industries', 'industries', 'Healthcare organizations we support'],
+                    ['About', 'about', 'Our approach and operating philosophy'],
+                    ['Contact', 'contact', 'Connect with MADE Healthcare'],
+                  ].map(([label, id, description]) => (
+                      <button key={id} onClick={() => go(id)}>
+                        <span><b>{label}</b><small>{description}</small></span><ArrowUpRight size={17} />
+                      </button>
+                  ))}
+                </div>
+                <div className="searchHint">Tip: press <strong>Ctrl + K</strong> anytime to open search.</div>
               </div>
             </div>
-          </div>
-        </section>
+        )}
 
-        <section id="services" className="servicesSection section">
-          <div className="wrap">
-            <div className="sectionIntro">
-              <div>
-                <span className="sectionIndex">01</span>
-                <div className="eyebrow"><span>SERVICES</span> HEALTHCARE RCM</div>
-                <h2>Complete revenue-cycle<br /><em>support built around your workflow.</em></h2>
+        <main>
+          <section id="home" className="hero">
+            <div className="heroGlow heroGlowOne" />
+            <div className="heroGlow heroGlowTwo" />
+            <div className="wrap heroGrid">
+              <div className="heroCopy reveal">
+                <div className="eyebrow"><span>00</span> MADE HEALTHCARE · RCM</div>
+                <h1>Healthcare revenue.<br /><em>Smarter operations.</em><br />Better outcomes.</h1>
+                <p className="heroLead">MADE Healthcare combines medical billing expertise, revenue cycle operations, technology and analytics to help healthcare organizations strengthen financial performance while allowing care teams to focus on patients.</p>
+                <div className="heroFacts">
+                  <div><strong>RCM</strong><span>Healthcare revenue cycle</span></div>
+                  <div><strong>TECH</strong><span>Technology-enabled workflows</span></div>
+                  <div><strong>PEOPLE</strong><span>Expertise behind every process</span></div>
+                </div>
               </div>
-              <div className="introNote"><strong>People + process + technology</strong><p>We bring together billing expertise, operational discipline, analytics and technology to support the financial side of healthcare delivery.</p></div>
-            </div>
 
-            <div className="gridFrame servicesFrame">
-              <div className="serviceGrid">
-                {services.map(([number, title, text, Icon]) => (
-                  <article key={number} className={`serviceCard ${activeService === number ? 'selected' : ''}`} onMouseEnter={() => setActiveService(number)} onMouseLeave={() => setActiveService(null)}>
-                    <div className="cardTop"><span>{number}</span><Icon size={22} strokeWidth={1.7} /></div>
-                    <h3>{title}</h3><p>{text}</p><div className="cardArrow"><ArrowUpRight size={17} /></div>
-                  </article>
+              <div className="heroVisual reveal delayOne" aria-hidden="true">
+                <div className="visualFrame">
+                  <div className="visualTop"><span>HEALTHCARE OPERATIONS</span><span>01 — 04</span></div>
+                  <div className="visualPanel">
+                    <div className="visualOrb"><HeartPulse size={68} strokeWidth={1.2} /></div>
+                    <div className="visualMetric"><small>REVENUE CYCLE</small><b>People · Process · Technology</b></div>
+                    <div className="visualLines"><i /><i /><i /><i /></div>
+                  </div>
+                  <div className="visualFooter"><span>CARE</span><span>COMMUNITY</span><span>COMPASSION</span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="services" className="servicesSection section">
+            <div className="wrap">
+              <div className="sectionIntro">
+                <div>
+                  <span className="sectionIndex">01</span>
+                  <div className="eyebrow"><span>SERVICES</span> HEALTHCARE RCM</div>
+                  <h2>Complete revenue-cycle<br /><em>support built around your workflow.</em></h2>
+                </div>
+                <div className="introNote"><strong>People + process + technology</strong><p>We bring together billing expertise, operational discipline, analytics and technology to support the financial side of healthcare delivery.</p></div>
+              </div>
+
+              <div className="gridFrame servicesFrame">
+                <div className="serviceGrid">
+                  {services.map(([number, title, text, Icon]) => (
+                      <article key={number} className={`serviceCard ${activeService === number ? 'selected' : ''}`} onMouseEnter={() => setActiveService(number)} onMouseLeave={() => setActiveService(null)}>
+                        <div className="cardTop"><span>{number}</span><Icon size={22} strokeWidth={1.7} /></div>
+                        <h3>{title}</h3><p>{text}</p><div className="cardArrow"><ArrowUpRight size={17} /></div>
+                      </article>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section id="training" className="trainingSection section">
+            <div className="wrap">
+              <div className="sectionIntro trainingIntro">
+                <div>
+                  <span className="sectionIndex">02</span>
+                  <div className="eyebrow light"><span>TRAINING</span> PROFESSIONAL DEVELOPMENT</div>
+                  <h2>Medical billing knowledge<br /><em>that connects to real workflows.</em></h2>
+                </div>
+                <div className="introNote lightNote"><strong>Structured learning</strong><p>Build practical knowledge from billing fundamentals through claims, denials, A/R, compliance and billing technology.</p></div>
+              </div>
+
+              <div className="trainingLayout">
+                <div className="trainingModules gridFrameDark">
+                  {trainingModules.map(([number, title, text, Icon]) => (
+                      <article className="trainingCard" key={number}>
+                        <span className="moduleNumber">{number}</span>
+                        <div className="moduleIcon"><Icon size={20} /></div>
+                        <div><h3>{title}</h3><p>{text}</p></div>
+                      </article>
+                  ))}
+                </div>
+
+                <aside className="trainingAside">
+                  <div className="asideEyebrow">LEARNER FIT</div>
+                  <h3>A clear professional foundation for the healthcare billing industry.</h3>
+                  {['Fresh Graduates', 'Career Changers', 'International Learners', 'Junior Billers'].map((item) => (
+                      <div className="checkItem" key={item}><CheckCircle2 size={18} /> <span>{item}</span></div>
+                  ))}
+                  <button className="textBtn" onClick={() => go('contact')}>Talk about training <ArrowRight size={16} /></button>
+                </aside>
+              </div>
+            </div>
+          </section>
+
+          <section id="industries" className="industriesSection section">
+            <div className="wrap">
+              <div className="sectionIntro">
+                <div><span className="sectionIndex">03</span><div className="eyebrow"><span>INDUSTRIES</span> HEALTHCARE ORGANIZATIONS</div><h2>Support that adapts<br /><em>to the way healthcare works.</em></h2></div>
+                <div className="introNote"><strong>Operational context matters</strong><p>Revenue-cycle workflows differ by care environment. Our approach starts with the organization's operating model and priorities.</p></div>
+              </div>
+              <div className="industryGrid">
+                {industries.map(([number, title, text, Icon, tone]) => (
+                    <article className={`industryCard industry-${tone}`} key={number}>
+                      <div className="industryNumber">{number}</div>
+                      <div className="industryIcon"><Icon size={20} strokeWidth={1.7} /></div>
+                      <div className="industryContent"><h3>{title}</h3><p>{text}</p></div>
+                      <ArrowUpRight className="industryArrow" size={17} />
+                    </article>
                 ))}
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section id="training" className="trainingSection section">
-          <div className="wrap">
-            <div className="sectionIntro trainingIntro">
-              <div>
-                <span className="sectionIndex">02</span>
-                <div className="eyebrow light"><span>TRAINING</span> PROFESSIONAL DEVELOPMENT</div>
-                <h2>Medical billing knowledge<br /><em>that connects to real workflows.</em></h2>
-              </div>
-              <div className="introNote lightNote"><strong>Structured learning</strong><p>Build practical knowledge from billing fundamentals through claims, denials, A/R, compliance and billing technology.</p></div>
+          <section id="about" className="aboutSection section">
+            <div className="wrap aboutGrid">
+              <div className="aboutVisual"><div className="aboutBadge"><span>MADE</span><b>HEALTHCARE</b><small>RCM · TRAINING · TECHNOLOGY</small></div><div className="aboutQuote">Healthcare expertise<br /><em>with an operational mindset.</em></div></div>
+              <div className="aboutCopy"><span className="sectionIndex">04</span><div className="eyebrow"><span>ABOUT</span> OUR APPROACH</div><h2>Healthcare expertise with an <em>operational mindset.</em></h2><p>MADE Healthcare RCM is focused on the connection between healthcare operations, revenue cycle performance and professional development.</p><p>Our approach brings together medical billing knowledge, revenue-cycle workflows, technology, analytics and continuous process improvement.</p><div className="pillarGrid">{pillars.map(([title, subtitle, text]) => <div className="pillar" key={title}><small>{title}</small><strong>{subtitle}</strong><p>{text}</p></div>)}</div></div>
             </div>
+          </section>
 
-            <div className="trainingLayout">
-              <div className="trainingModules gridFrameDark">
-                {trainingModules.map(([number, title, text, Icon]) => (
-                  <article className="trainingCard" key={number}>
-                    <span className="moduleNumber">{number}</span>
-                    <div className="moduleIcon"><Icon size={20} /></div>
-                    <div><h3>{title}</h3><p>{text}</p></div>
-                  </article>
-                ))}
-              </div>
+          <section className="statementSection"><div className="wrap statementInner"><div className="statementMark"><BriefcaseBusiness size={24} /></div><p>Better revenue operations are built through <em>knowledge, discipline, visibility and technology.</em></p><button className="textBtn darkBtn" onClick={() => go('contact')}>Start a conversation <ArrowRight size={16} /></button></div></section>
 
-              <aside className="trainingAside">
-                <div className="asideEyebrow">LEARNER FIT</div>
-                <h3>A clear professional foundation for the healthcare billing industry.</h3>
-                {['Fresh Graduates', 'Career Changers', 'International Learners', 'Junior Billers'].map((item) => (
-                  <div className="checkItem" key={item}><CheckCircle2 size={18} /> <span>{item}</span></div>
-                ))}
-                <button className="textBtn" onClick={() => go('contact')}>Talk about training <ArrowRight size={16} /></button>
-              </aside>
+          <section id="contact" className="contactSection section">
+            <div className="wrap contactGrid">
+              <div className="contactCopy"><span className="sectionIndex">05</span><div className="eyebrow light"><span>CONTACT</span> MADE HEALTHCARE</div><h2>Let's build a better<br /><em>healthcare operation.</em></h2><p>Tell us what you are working on. We can connect around healthcare revenue-cycle operations, training, technology or general enquiries.</p><div className="contactDetails"><div><small>OFFICE</small><strong>No. 5/246, Thiruvallur - Redhills High Road,<br />Rajiv Gandhinagar, Chennai - 52</strong></div><div><small>CONTACT</small><a href={`tel:${phone}`}>{phone}</a></div></div></div>
+              <div className="contactActions"><a className="contactAction whatsappAction" href={whatsapp} target="_blank" rel="noreferrer"><span><MessageCircle size={19} /></span><b><small>WHATSAPP</small>Chat with us</b><ArrowUpRight size={17} /></a><a className="contactAction callAction" href={`tel:${phone}`}><span><Phone size={19} /></span><b><small>CALL US</small>{phone}</b><ArrowUpRight size={17} /></a><a className="emailAction" href={`mailto:${email}`}>{email}<ArrowUpRight size={16} /></a></div>
             </div>
-          </div>
-        </section>
+          </section>
+        </main>
 
-        <section id="industries" className="industriesSection section">
-          <div className="wrap">
-            <div className="sectionIntro">
-              <div><span className="sectionIndex">03</span><div className="eyebrow"><span>INDUSTRIES</span> HEALTHCARE ORGANIZATIONS</div><h2>Support that adapts<br /><em>to the way healthcare works.</em></h2></div>
-              <div className="introNote"><strong>Operational context matters</strong><p>Revenue-cycle workflows differ by care environment. Our approach starts with the organization's operating model and priorities.</p></div>
-            </div>
-            <div className="industryGrid">
-              {industries.map(([number, title, text]) => (
-                <article className="industryCard" key={number}><span>{number}</span><div><h3>{title}</h3><p>{text}</p></div><ArrowUpRight size={18} /></article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section id="about" className="aboutSection section">
-          <div className="wrap aboutGrid">
-            <div className="aboutVisual"><div className="aboutBadge"><span>MADE</span><b>HEALTHCARE</b><small>RCM · TRAINING · TECHNOLOGY</small></div><div className="aboutQuote">Healthcare expertise<br /><em>with an operational mindset.</em></div></div>
-            <div className="aboutCopy"><span className="sectionIndex">04</span><div className="eyebrow"><span>ABOUT</span> OUR APPROACH</div><h2>Healthcare expertise with an <em>operational mindset.</em></h2><p>MADE Healthcare RCM is focused on the connection between healthcare operations, revenue cycle performance and professional development.</p><p>Our approach brings together medical billing knowledge, revenue-cycle workflows, technology, analytics and continuous process improvement.</p><div className="pillarGrid">{pillars.map(([title, subtitle, text]) => <div className="pillar" key={title}><small>{title}</small><strong>{subtitle}</strong><p>{text}</p></div>)}</div></div>
-          </div>
-        </section>
-
-        <section className="statementSection"><div className="wrap statementInner"><div className="statementMark"><BriefcaseBusiness size={24} /></div><p>Better revenue operations are built through <em>knowledge, discipline, visibility and technology.</em></p><button className="textBtn darkBtn" onClick={() => go('contact')}>Start a conversation <ArrowRight size={16} /></button></div></section>
-
-        <section id="contact" className="contactSection section">
-          <div className="wrap contactGrid">
-            <div className="contactCopy"><span className="sectionIndex">05</span><div className="eyebrow light"><span>CONTACT</span> MADE HEALTHCARE</div><h2>Let's build a better<br /><em>healthcare operation.</em></h2><p>Tell us what you are working on. We can connect around healthcare revenue-cycle operations, training, technology or general enquiries.</p><div className="contactDetails"><div><small>OFFICE</small><strong>No. 5/246, Thiruvallur - Redhills High Road,<br />Rajiv Gandhinagar, Chennai - 52</strong></div><div><small>CONTACT</small><a href={`tel:${phone}`}>{phone}</a></div></div></div>
-            <div className="contactActions"><a className="contactAction whatsappAction" href={whatsapp} target="_blank" rel="noreferrer"><span><MessageCircle size={19} /></span><b><small>WHATSAPP</small>Chat with us</b><ArrowUpRight size={17} /></a><a className="contactAction callAction" href={`tel:${phone}`}><span><Phone size={19} /></span><b><small>CALL US</small>{phone}</b><ArrowUpRight size={17} /></a><a className="emailAction" href={`mailto:${email}`}>{email}<ArrowUpRight size={16} /></a></div>
-          </div>
-        </section>
-      </main>
-
-      <footer className="footer"><div className="wrap footerInner"><a href="#home" className="footerBrand" onClick={() => setMenu(false)}><img src="/images/made-healthcare-logo.jpeg" alt="MADE Healthcare" /></a><div className="footerLinks"><button onClick={() => go('services')}>Services</button><button onClick={() => go('training')}>Training</button><button onClick={() => go('industries')}>Industries</button><button onClick={() => go('about')}>About</button><button onClick={() => go('contact')}>Contact</button></div><span className="copyright">© {new Date().getFullYear()} MADE Healthcare. All rights reserved.</span></div></footer>
-    </div>
+        <footer className="footer"><div className="wrap footerInner"><a href="#home" className="footerBrand" onClick={() => setMenu(false)}><img src="/images/made-healthcare-logo.jpeg" alt="MADE Healthcare" /></a><div className="footerLinks"><button onClick={() => go('services')}>Services</button><button onClick={() => go('training')}>Training</button><button onClick={() => go('industries')}>Industries</button><button onClick={() => go('about')}>About</button><button onClick={() => go('contact')}>Contact</button></div><span className="copyright">© {new Date().getFullYear()} MADE Healthcare. All rights reserved.</span></div></footer>
+      </div>
   )
 }
 
