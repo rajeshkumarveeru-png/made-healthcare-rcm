@@ -5,7 +5,7 @@ import {
   ShieldCheck, Stethoscope, Target, Users, Workflow, X,
 } from 'lucide-react'
 
-const whatsapp = 'https://wa.me/8098311291?text=Hello%2C%20I%20have%20a%20question'
+const whatsapp = 'https://wa.me/8667053636?text=Hello%2C%20I%20have%20a%20question'
 const phone = '8098311291'
 const email = 'info@madehealthcare.com'
 
