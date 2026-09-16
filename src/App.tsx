@@ -7,7 +7,7 @@ import {
 
 const whatsapp = 'https://wa.me/8098311291?text=Hello%2C%20I%20have%20a%20question'
 const phone = '8098311291'
-const email = 'info@madehealth.com'
+const email = 'info@madehealthcare.com'
 
 const services = [
   ['01', 'Medical Billing', 'Accurate billing workflows designed to support cleaner claims, timely reimbursement and stronger revenue visibility.', HeartPulse],
