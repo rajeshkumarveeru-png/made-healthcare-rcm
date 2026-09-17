@@ -6,7 +6,7 @@ import {
     Building2, Sparkles, House, BrainCircuit,
 } from 'lucide-react'
 
-const whatsapp = 'https://wa.me/8098311291?text=Hello%2C%20I%20have%20a%20question'
+const whatsapp = 'https://wa.me/8667053636?text=Hello%2C%20I%20have%20a%20question'
 const phone = '8098311291'
 const email = 'info@madehealthcare.com'
 
@@ -142,69 +142,113 @@ function App() {
             )}
 
             <main>
-                <section id="home" className="hero heroMedical">
-                    <div className="heroMedicalGlow heroMedicalGlowOne"/>
-                    <div className="heroMedicalGlow heroMedicalGlowTwo"/>
-                    <div className="heroMedicalGrid"/>
-                    <div className="heroHeartDecor" aria-hidden="true">
-                        <div className="heartDecorPulse"><HeartPulse size={31} strokeWidth={1.35}/></div>
-                        <span></span><span></span><span></span>
+              <section id="home" className="hero heroMedical">
+                <div className="heroMedicalGlow heroMedicalGlowOne" />
+                <div className="heroMedicalGlow heroMedicalGlowTwo" />
+                <div className="heroMedicalGrid" />
+
+                <div className="heroHeartDecor" aria-hidden="true">
+                  <div className="heartDecorPulse">
+                    <HeartPulse size={31} strokeWidth={1.35} />
+                  </div>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div className="heroEcgLine" aria-hidden="true">
+                  <HeartPulse size={112} strokeWidth={1.05} />
+                </div>
+
+                <div className="heroCurve" aria-hidden="true" />
+
+                <div className="wrap heroMedicalInner">
+
+                  {/* HERO CONTENT */}
+                  <div className="heroMedicalCopy reveal">
+
+                    <div className="heroMedicalEyebrow">
+                      <span>00</span> MADE HEALTHCARE · RCM
                     </div>
-                    <div className="heroEcgLine" aria-hidden="true"><HeartPulse size={112} strokeWidth={1.05}/></div>
-                    <div className="heroCurve" aria-hidden="true"/>
-                    <div className="wrap heroMedicalInner">
-                        <div className="heroMedicalCopy reveal">
-                            <div className="heroMedicalEyebrow"><span>00</span> MADE HEALTHCARE · RCM</div>
-                            <h1>Healthcare revenue.<br/><em>Smarter operations.</em><br/>Better outcomes.</h1>
-                            <p className="heroLead">MADE Healthcare combines medical billing expertise, revenue cycle
-                                operations, technology and analytics to help healthcare organizations strengthen
-                                financial performance while allowing care teams to focus on patients.</p>
-                            <div className="heroFacts">
-                                <div>
-    <span className="factIcon">
-      <HeartPulse size={21} strokeWidth={1.8}/>
-    </span>
 
-                                    <span className="factText">
-      <strong>RCM</strong>
-      <span>Healthcare revenue cycle</span>
-    </span>
-                                </div>
+                    <h1>
+                      Healthcare revenue.
+                      <br />
+                      <em>Smarter operations.</em>
+                      <br />
+                      Better outcomes.
+                    </h1>
 
-                                <div>
-    <span className="factIcon">
-      <Laptop2 size={21} strokeWidth={1.8}/>
-    </span>
+                    <p className="heroLead">
+                      MADE Healthcare combines medical billing expertise, revenue cycle
+                      operations, technology and analytics to help healthcare organizations
+                      strengthen financial performance while allowing care teams to focus
+                      on patients.
+                    </p>
 
-                                    <span className="factText">
-      <strong>TECH</strong>
-      <span>Technology-enabled workflows</span>
-    </span>
-                                </div>
+                    {/* HERO FACTS */}
+                    <div className="heroFacts">
 
-                                <div>
-    <span className="factIcon">
-      <Users size={21} strokeWidth={1.8}/>
-    </span>
+                      <div>
+          <span className="factIcon">
+            <HeartPulse size={21} strokeWidth={1.8} />
+          </span>
 
-                                    <span className="factText">
-      <strong>PEOPLE</strong>
-      <span>Expertise behind every process</span>
-    </span>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="heroMedicalVisual reveal delayOne" aria-hidden="true">
-                            <div className="doctorBackdrop">
-                                <div className="doctorHalo"/>
-                                <div className="doctorImageWrap"><img src="/images/hero-doctor-hd.png"
-                                                                      alt="Healthcare professional"/></div>
-                                <div className="doctorRing doctorRingOne"/>
-                                <div className="doctorRing doctorRingTwo"/>
-                            </div>
-                        </div>
+                        <span className="factText">
+            <strong>RCM</strong>
+            <span>Healthcare revenue cycle</span>
+          </span>
+                      </div>
+
+                      <div>
+          <span className="factIcon">
+            <Laptop2 size={21} strokeWidth={1.8} />
+          </span>
+
+                        <span className="factText">
+            <strong>TECH</strong>
+            <span>Technology-enabled workflows</span>
+          </span>
+                      </div>
+
+                      <div>
+          <span className="factIcon">
+            <Users size={21} strokeWidth={1.8} />
+          </span>
+
+                        <span className="factText">
+            <strong>PEOPLE</strong>
+            <span>Expertise behind every process</span>
+          </span>
+                      </div>
+
                     </div>
-                </section>
+                  </div>
+
+                  {/* DOCTOR VISUAL */}
+                  <div
+                      className="heroMedicalVisual reveal delayOne"
+                      aria-hidden="true"
+                  >
+                    <div className="doctorBackdrop">
+
+                      <div className="doctorHalo" />
+
+                      <div className="doctorImageWrap">
+                        <img
+                            src="/images/hero-doctor-hd.png"
+                            alt="Healthcare professional"
+                        />
+                      </div>
+
+                      <div className="doctorRing doctorRingOne" />
+                      <div className="doctorRing doctorRingTwo" />
+
+                    </div>
+                  </div>
+
+                </div>
+              </section>
 
                 <section id="services" className="servicesSection section">
                     <div className="wrap">
