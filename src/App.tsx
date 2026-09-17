@@ -7,7 +7,8 @@ import {
 } from 'lucide-react'
 
 const whatsapp = 'https://wa.me/8667053636?text=Hello%2C%20I%20have%20a%20question'
-const phone = '8098311291'
+const phonePrimary = '8098311291'
+const phoneSecondary = '9003204951'
 const email = 'info@madehealthcare.com'
 
 const services = [
@@ -15,7 +16,7 @@ const services = [
     ['02', 'Medical Coding', 'Coding support, chart review and compliance-focused processes that connect documentation with reimbursement.', Code2],
     ['03', 'Patient Access', 'Registration, eligibility and benefits verification, authorization and front-end revenue-cycle support.', Users],
     ['04', 'Compliance & Audits', 'Structured reviews and compliance-aware workflows designed to identify process gaps and reduce avoidable billing issues.', ShieldCheck],
-    ['05', 'Denials & A/R', 'Denial analysis, payer follow-up, accounts receivable, appeals and revenue-recovery workflows.', Target],
+    ['05', 'Denials & AR', 'Denial analysis, payer follow-up, accounts receivable, appeals and revenue-recovery workflows.', Target],
     ['06', 'Analytics', 'Actionable reporting and operational visibility across claims, payments, denials, collections and revenue performance.', BarChart3],
     ['07', 'Technology Integration', 'Technology-enabled workflows that connect billing, clinical information, operational systems and reporting.', Laptop2],
     ['08', 'Automation', 'Intelligent workflow automation for repetitive processes, prioritization, monitoring and operational efficiency.', Workflow],
@@ -91,7 +92,7 @@ function App() {
                     </a>
 
                     <nav className={menu ? 'nav show' : 'nav'} aria-label="Primary navigation">
-                        {['home', 'services', 'training', 'industries', 'about', 'contact'].map((id) => (
+                        {['home', 'services', 'industries', 'training', 'about', 'contact'].map((id) => (
                             <button key={id} onClick={() => go(id)}>{id[0].toUpperCase() + id.slice(1)}</button>
                         ))}
                         <button className="searchBtn" onClick={() => {
@@ -126,8 +127,8 @@ function App() {
                             {[
                                 ['Home', 'home', 'Healthcare revenue and operations'],
                                 ['Services', 'services', 'Billing, coding, access, analytics and automation'],
-                                ['Training', 'training', 'Medical billing professional development'],
                                 ['Industries', 'industries', 'Healthcare organizations we support'],
+                                ['Training', 'training', 'Medical billing professional development'],
                                 ['About', 'about', 'Our approach and operating philosophy'],
                                 ['Contact', 'contact', 'Connect with MADE Healthcare'],
                             ].map(([label, id, description]) => (
@@ -281,16 +282,39 @@ function App() {
                     </div>
                 </section>
 
-                <section id="training" className="trainingSection section">
+                <section id="industries" className="industriesSection section">
+                    <div className="wrap">
+                        <div className="sectionIntro">
+                            <div><span className="sectionIndex">02</span>
+                                <div className="eyebrow"><span>INDUSTRIES</span> HEALTHCARE ORGANIZATIONS</div>
+                                <h2>Support that adapts<br/><em>to the way healthcare works.</em></h2></div>
+                            <div className="introNote"><strong>Operational context matters</strong><p>Revenue-cycle
+                                workflows differ by care environment. Our approach starts with the organization's
+                                operating model and priorities.</p></div>
+                        </div>
+                        <div className="industryGrid">
+                            {industries.map(([number, title, text, Icon, tone]) => (
+                                <article className={`industryCard industry-${tone}`} key={number}>
+                                    <div className="industryNumber">{number}</div>
+                                    <div className="industryIcon"><Icon size={20} strokeWidth={1.7}/></div>
+                                    <div className="industryContent"><h3>{title}</h3><p>{text}</p></div>
+                                    <ArrowUpRight className="industryArrow" size={17}/>
+                                </article>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+
+<section id="training" className="trainingSection section">
                     <div className="wrap">
                         <div className="sectionIntro trainingIntro">
                             <div>
-                                <span className="sectionIndex">02</span>
+                                <span className="sectionIndex">03</span>
                                 <div className="eyebrow light"><span>TRAINING</span> PROFESSIONAL DEVELOPMENT</div>
                                 <h2>Medical billing knowledge<br/><em>that connects to real workflows.</em></h2>
                             </div>
                             <div className="introNote lightNote"><strong>Structured learning</strong><p>Build practical
-                                knowledge from billing fundamentals through claims, denials, A/R, compliance and billing
+                                knowledge from billing fundamentals through claims, denials, AR, compliance and billing
                                 technology.</p></div>
                         </div>
 
@@ -315,29 +339,6 @@ function App() {
                                 <button className="textBtn" onClick={() => go('contact')}>Talk about
                                     training <ArrowRight size={16}/></button>
                             </aside>
-                        </div>
-                    </div>
-                </section>
-
-                <section id="industries" className="industriesSection section">
-                    <div className="wrap">
-                        <div className="sectionIntro">
-                            <div><span className="sectionIndex">03</span>
-                                <div className="eyebrow"><span>INDUSTRIES</span> HEALTHCARE ORGANIZATIONS</div>
-                                <h2>Support that adapts<br/><em>to the way healthcare works.</em></h2></div>
-                            <div className="introNote"><strong>Operational context matters</strong><p>Revenue-cycle
-                                workflows differ by care environment. Our approach starts with the organization's
-                                operating model and priorities.</p></div>
-                        </div>
-                        <div className="industryGrid">
-                            {industries.map(([number, title, text, Icon, tone]) => (
-                                <article className={`industryCard industry-${tone}`} key={number}>
-                                    <div className="industryNumber">{number}</div>
-                                    <div className="industryIcon"><Icon size={20} strokeWidth={1.7}/></div>
-                                    <div className="industryContent"><h3>{title}</h3><p>{text}</p></div>
-                                    <ArrowUpRight className="industryArrow" size={17}/>
-                                </article>
-                            ))}
                         </div>
                     </div>
                 </section>
@@ -381,16 +382,45 @@ function App() {
                                 working on. We can connect around healthcare revenue-cycle operations, training,
                                 technology or general enquiries.</p>
                             <div className="contactDetails">
-                                <div><small>OFFICE</small><strong>No. 5/246, Thiruvallur - Redhills High Road,<br/>Rajiv
-                                    Gandhinagar, Chennai - 52</strong></div>
-                                <div><small>CONTACT</small><a href={`tel:${phone}`}>{phone}</a></div>
+                                <div>
+                                    <small>OFFICE</small>
+                                    <strong>
+                                        No. 5/246, Thiruvallur - Redhills High Road,<br/>
+                                        Rajiv Gandhinagar, Chennai - 52
+                                    </strong>
+                                </div>
+
+                                <div>
+                                    <small>CONTACT</small>
+
+                                    <a href={`tel:${phonePrimary}`}>
+                                        +91 {phonePrimary}
+                                    </a>
+
+                                    <a href={`tel:${phoneSecondary}`}>
+                                        +91 {phoneSecondary}
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div className="contactActions"><a className="contactAction whatsappAction" href={whatsapp}
                                                            target="_blank" rel="noreferrer"><span><MessageCircle
                             size={19}/></span><b><small>WHATSAPP</small>Chat with us</b><ArrowUpRight size={17}/></a><a
-                            className="contactAction callAction" href={`tel:${phone}`}><span><Phone
-                            size={19}/></span><b><small>CALL US</small>{phone}</b><ArrowUpRight size={17}/></a><a
+                            className="contactAction callAction"
+                            href={`tel:${phonePrimary}`}
+                        >
+    <span>
+        <Phone size={19}/>
+    </span>
+
+                            <b>
+                                <small>CALL US</small>
+                                <span>+91 {phonePrimary}</span>
+                                <span>+91 {phoneSecondary}</span>
+                            </b>
+
+                            <ArrowUpRight size={17}/>
+                        </a><a
                             className="emailAction" href={`mailto:${email}`}>{email}<ArrowUpRight size={16}/></a></div>
                     </div>
                 </section>
