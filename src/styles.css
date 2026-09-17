@@ -1271,3 +1271,33 @@ body {
     opacity: .35;
   }
 }
+
+/* =========================================================
+   LARGE MONITOR — DOCTOR POSITION
+   ========================================================= */
+
+@media (min-width: 2001px) {
+  .heroMedicalVisual .doctorImageWrap img {
+    transform: translateX(600px) scale(1.02) !important;
+  }
+
+  .heroMedicalVisual:hover .doctorImageWrap img {
+    transform: translateX(150px) scale(1.05) translateY(-4px) !important;
+  }
+}
+
+.contactAction.callAction b {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.contactAction.callAction b small {
+  margin-bottom: 3px;
+}
+
+.contactAction.callAction b > span {
+  display: block;
+  line-height: 1.25;
+}
