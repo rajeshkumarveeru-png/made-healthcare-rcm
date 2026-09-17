@@ -385,8 +385,8 @@ function App() {
                                 <div>
                                     <small>OFFICE</small>
                                     <strong>
-                                        No. 5/246, Thiruvallur - Redhills High Road,<br/>
-                                        Rajiv Gandhinagar, Chennai - 52
+                                        No. 5/246,<br/> Thiruvallur - Redhills High Road,<br/>
+                                        Rajiv Gandhinagar,<br/> Chennai, Tamil Nadu — 600052
                                     </strong>
                                 </div>
 
